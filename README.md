@@ -10,7 +10,7 @@
 4. Conclusão;
 
 * Resumo
-    * O conteúdo deste pipeline de **ETL** tem como objetivo demonstrar o fluxo de execução de execução de dados e criação de uma proposta de datalake, implementando regras de negócio utlizando como base **Apache Spark**. Além da aplicação de transformações para viabilizar a implementação das transformações (*que também podem conter regras de negócios*), os dados foram consolidados em tabelas no banco **Postgres**.
+    * O conteúdo deste pipeline de **ETL** tem como objetivo demonstrar o fluxo de execução de dados e criação de uma proposta de datalake, implementando kpi's  utlizando como base **Apache Spark**. Além da aplicação de transformações para viabilizar a implementação das transformações (*que também podem conter kpis*), os dados foram consolidados em tabelas no banco **Postgres**.
     * Tecnologias que viabilizaram a realização do case:
         * [Apache Airflow](https://airflow.apache.org/)
         * [Postgres](https://www.postgresql.org/)
@@ -18,7 +18,7 @@
     
 
 
-## **ETL de dados com apache Apache Spark  e Proposta de implementação do modelo Data Warehouse.**
+## **ETL de dados com Apache Spark / Proposta de implementação de datalake.**
 A estrutura necessária para a execução do pipeline de ETL foi implementada seguindo o padrão semelhante a Arquitetura Orientada a Serviçõs (SOA) evidenciado abaixo. Este padrão contribui para fácil manutenção do código fonte e principalmente para escalabilidade de análises sob o dado coletado.
 ![DATA](/resources/project_model.png)
 
@@ -82,11 +82,10 @@ Módulo que viabiliza a escrita / leitura das tabelas no postgress.
     ![AIRFLOWINIT](/resources/airflow.png) 
     1. Abir a DAG e clicar no ícone de play, localizado no canto superior direito.
     1. Aguardar a execução do pipeline.
-    1. OS dados estarão disponíveis para consulta nas tabelas:
+    1. OS dados estarão disponíveis para consulta nas tabelas de :
         1. californians_consolidated_data;
         2. ca_consolidated_data.
         3. stddev_table.
 
 ### Conclusão:
-1. As perguntas respondidas através deste pipeline e modelo de implementação de datalake asseguram que as tabelas geradas irão garantir que os KPI's (indicadores de performance), como desvio padrão, média de população, categorização da população de acordo com a latitude e longitude, desvio minimo e máximo sempre serão processados sem intervenção humana, podendo neste mesmo pipeline incluir novas fontes de dados a fim de democratizar os dados em um datalake centralizado.
-Melhorias na implementação do datalake: conforme mencionado anteriormente, o case foi solucionado utilizando o banco Postgres para a leitura de dados e os arquivos persistidos podem ser lidos a partir do módulo dao.load, desenvolvido neste projeto, na proposta inicial, os arquivos deveriam ser persistidos em **.parquet** em uma strutura de pastas não definida nos requisitos.
+1. As perguntas respondidas através deste pipeline e modelo de implementação de datalake asseguram que as tabelas geradas irão garantir que os KPI's como desvio padrão, média de população, categorização da população de acordo com a latitude e longitude, desvio minimo e máximo sempre serão processados sem intervenção humana, podendo neste mesmo pipeline incluir novas fontes de dados a fim de democratizar os dados em um datalake centralizado.
